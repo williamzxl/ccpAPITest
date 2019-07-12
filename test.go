@@ -27,4 +27,5 @@ func getMethodProtoType(config ServiceConfig, method string) (uint32, error) {
 
 func main() {
 	getMethodProtoType(CCPServiceConfig, "GetAuth")
+	fmt.Println("Test git")
 }
