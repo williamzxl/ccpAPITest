@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>▒~N▒▒~O▒▒~G▒▒~J▒▒~L~V▒~K▒~U▒~J▒▒~Q~J_2019-07-10_17_02_32</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+    <style type="text/css" media="screen">
+        pre {
+            white-space: pre-wrap;
+            white-space: -moz-pre-wrap;
+            white-space: -pre-wrap;
+            white-space: -o-pre-wrap;
+            word-wrap: break-word;
+            text-align: left;
+        }
+
+        body {
+            font-family: Microsoft YaHei, Tahoma, arial, helvetica, sans-serif;
+            padding: 20px;
+            font-size: 80%;
+        }
+
+        table {
+            font-size: 100%;
+        }
+
+        /* -- heading ---------------------------------------------------------------------- */
+        .heading {
+            margin-top: 0ex;
+            margin-bottom: 1ex;
+        }
+
+        .heading .description {
+            margin-top: 4ex;
+            margin-bottom: 6ex;
+        }
+
+        /* -- report ------------------------------------------------------------------------ */
+        #total_row {
+            font-weight: bold;
+        }
+
+        .passCase {
+            color: #5cb85c;
+        }
+
+        .failCase {
+            color: #f0ad4e;
+            font-weight: bold;
+        }
+
+        .errorCase {
+            color: #d9534f;
+            font-weight: bold;
+        }
+
+        .hiddenRow {
+            display: none;
+        }
+
+        .testcase {
+            margin-left: 2em;
+        }
+    </style>
+</head>
+<script language="javascript" type="text/javascript">
+    output_list = Array();
+
+
+    function showCase(level) {
+        trs = document.getElementsByTagName("tr");
+        for (var i = 0; i < trs.length; i++) {
+            tr = trs[i];
+            id = tr.id;
+            if (id.substr(0, 2) == 'pt') {
+                if (level == 1 || level == 4) {
+                    tr.className = '';
+                }
+                else {
+                    tr.className = 'hiddenRow';
+                }
+            }
+            if (id.substr(0, 2) == 'ft') {
+                if (level == 2 || level == 4) {
+                    tr.className = '';
+                }
+                else {
+                    tr.className = 'hiddenRow';
+                }
+            }
+
+            if (id.substr(0, 2) == 'et') {
+                if (level == 3 || level == 4) {
+                    tr.className = '';
+                }
+                else {
+                    tr.className = 'hiddenRow';
+                }
+            }
+        }
+
+        detail_class = document.getElementsByClassName('detail');
+        //console.log(detail_class.length)
+        if (level == 3) {
+            for (var i = 0; i < detail_class.length; i++) {
+                detail_class[i].innerHTML = "▒~T▒起"
+            }
+        }
+        else {
+            for (var i = 0; i < detail_class.length; i++) {
+                detail_class[i].innerHTML = "详▒~F"
+            }
+        }
+    }
+    function showClassDetail(cid, count) {
+        var id_list = Array(count);
+        var toHide = 1;
+        for (var i = 0; i < count; i++) {
+            tid0 = 't' + cid.substr(1) + '_' + (i + 1);
+            console.log(tid0);
+            tid = 'f' + tid0;
+            tr = document.getElementById(tid);
+            if (!tr) {
+                tid = 'p' + tid0;
+                tr = document.getElementById(tid);
+            }
+            if (!tr) {
+                tid = 'e' + tid0;
+                tr = document.getElementById(tid);
+            }
+            id_list[i] = tid;
+            if (tr.className) {
+                toHide = 0;
+            }
+        }
+        for (var i = 0; i < count; i++) {
+            tid = id_list[i];
+            if (toHide) {
+                document.getElementById(tid).className = 'hiddenRow';
+                document.getElementById(cid).innerText = "详▒~F"
+            }
+            else {
+                document.getElementById(tid).className = '';
+                document.getElementById(cid).innerText = "▒~T▒起"
+            }
+        }
+    }
+
+    function html_escape(s) {
+        s = s.replace(/&/g, '&amp;');
+        s = s.replace(/</g, '&lt;');
+        s = s.replace(/>/g, '&gt;');
+        return s;
+    }
+</script>
+
+<body>
+
+<div class='heading'>
+    <h1 style="font-family: Microsoft YaHei">▒~N▒▒~O▒▒~G▒▒~J▒▒~L~V▒~K▒~U▒~J▒▒~Q~J_2019-07-10_17_02_32</h1>
+    <p class='attribute'><strong>▒~@▒~K▒~W▒▒~W▒ : </strong> 2019-07-10 17:02:32</p>
+    <p class='attribute'><strong>▒~P~H计▒~@~W▒~W▒ : </strong> 0</p>
+    <p class='attribute'><strong>▒~K▒~U▒~S▒~^~\ : </strong> ▒~E▒ 8▒~L▒~@~Z▒~G 2▒~L失败 6▒~L▒~T~Y误 0▒~L跳▒~G
+        0▒~L▒~@~Z▒~G▒~N~G= 25.00%</p>
+
+    <p class='description'></p>
+</div>
+
+
+<p id='show_detail_line'>
+    <a class="btn btn-primary" href='javascript:showCase(0)'>▒~B▒~A{ 25.00% }</a>
+    <a class="btn btn-success" href='javascript:showCase(1)'>▒~@~Z▒~G{ 2 }</a>
+    <a class="btn btn-warning" href='javascript:showCase(2)'>失败{ 6 }</a>
+    <a class="btn btn-danger" href='javascript:showCase(3)'>▒~T~Y误{ 0 }</a>
+    <a class="btn btn-info" href='javascript:showCase(4)'>▒~I~@▒~\~I{ 8 }</a>
+</p>
+<table id='result_table' class="table table-condensed table-bordered table-hover">
+    <colgroup>
+        <col align='left'/>
+        <col align='right'/>
+        <col align='right'/>
+        <col align='right'/>
+        <col align='right'/>
+        <col align='right'/>
+        <col align='right'/>
+    </colgroup>
+    <tr id='header_row' class="text-center success" style="font-weight: bold;font-size: 14px;">
+        <td>▒~T▒▒~K▒~[~F/▒~K▒~U▒~T▒▒~K</td>
+        <td>▒~@▒计</td>
+        <td>▒~@~Z▒~G</td>
+        <td>失败</td>
+        <td>▒~T~Y误</td>
+        <td>跳▒~G</td>
+        <td>详▒~F</td>
+    </tr>
+
+
+
+    <tr class="failClass warning">
+        <td>GetAuthFail Suite</td>
+        <td class="text-center">2</td>
+        <td class="text-center">0</td>
+        <td class="text-center">2</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center"><a href="javascript:showClassDetail('c1',2)" class="detail" id="c1">详▒~F</a></td>
+    </tr>
+
+    <tr id="ft1_1" class="">
+        <td class="failCase">
+            <div class="testcase">GetAuthFail Get Auth Fail error When get auth fail should be err▒~HGetAuthFail Get Authh
+                Fail error When get auth fail should be err▒~I</div>
+        </td>
+        <td colspan="6" align="center">
+            <!--▒~X认▒~T▒起▒~T~Y误信▒~A▒
+            <button id='btn_ft1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_2'>失败</button>
+            <div id='div_ft1_2' class="collapse">  -->
+            <!-- ▒~X认▒~U▒~@▒~T~Y误信▒~A▒ -->
+            <button id="btn_ft1_1" type="button" class="btn btn-warning btn-xs" data-toggle="collapse" data-target="#div_ft1_1">失败</button>
+            <div id="div_ft1_1" class="collapse in">
+                <pre>"Failure">C:/Users/Administrator/Desktop/items/test/ccpAPITest/testcase/test_P0/auth/GetAuthFail/getAuthFail_test.go:24&#xA;Expected an error to have occurred.  Got:&#xA;    &lt;nil&gt;: nil&#xA;C:/Users/Administrator/Desktop/items/test/ccpAPITest/testcase/test_P0/auth/GetAuthFail/getAuthFail_test.go:25</pre>
+            </div>
+        </td>
+    </tr>
+
+    <tr id="ft1_2" class="">
+        <td class="failCase">
+            <div class="testcase">GetAuthFail Get Auth Fail Out is 0 When get auth fail out should equal 0▒~HGetAuthFail
+                Get Auth Fail Out is 0 When get auth fail out should equal 0▒~I</div>
+        </td>
+        <td colspan="6" align="center">
+            <!--▒~X认▒~T▒起▒~T~Y误信▒~A▒
+            <button id='btn_ft1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_2'>失败</button>
+            <div id='div_ft1_2' class="collapse">  -->
+
+            <!-- ▒~X认▒~U▒~@▒~T~Y误信▒~A▒ -->
+            <button id="btn_ft1_2" type="button" class="btn btn-warning btn-xs" data-toggle="collapse" data-target="#div_ft1_2">失败</button>
+            <div id="div_ft1_2" class="collapse in">
+                <pre>"Failure">C:/Users/Administrator/Desktop/items/test/ccpAPITest/testcase/test_P0/auth/GetAuthFail/getAuthFail_test.go:39&#xA;Expected&#xA;    &lt;*auth.UserAuthRespInner | 0xc0001cf080&gt;: {&#xA;        AuthState: nil,&#xA;        KickoffText: nil,&#xA;        ConnectorId: nil,&#xA;        Version: nil,&#xA;        Collect: nil,&#xA;        TransferPolicy: nil,&#xA;        Pversion: nil,&#xA;        SoftVersion: nil,&#xA;        UpdateMode: nil,&#xA;        Historyver: nil,&#xA;        AuthToken: nil,&#xA;        IpSpeedTestPolicy: nil,&#xA;        LogUploadPolicy: nil,&#xA;        AppleDeviceToken: nil,&#xA;        ConfigParams: nil,&#xA;        UpdateDesc: nil,&#xA;        OfflineCall: nil,&#xA;        RedPacketToken: nil,&#xA;        Timestamp: nil,&#xA;        Mediadatapolicy: nil,&#xA;        XXX_NoUnkeyedLiteral: {},&#xA;        XXX_unrecognized: nil,&#xA;        XXX_sizecache: 0,&#xA;    }&#xA;to equal&#xA;    &lt;int&gt;: 0&#xA;C:/Users/Administrator/Desktop/items/test/ccpAPITest/testcase/test_P0/auth/GetAuthFail/getAuthFail_test.go:40</pre>
+            </div>
+        </td>
+    </tr>
+
+    <tr class="failClass warning">
+        <td>GetAuthSuccess Suite</td>
+        <td class="text-center">2</td>
+        <td class="text-center">1</td>
+        <td class="text-center">1</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center"><a href="javascript:showClassDetail('c2',2)" class="detail" id="c2">详▒~F</a></td>
+    </tr>
+
+    <tr id="pt2_1" class="">
+        <td class="passCase">
+            <div class="testcase">GetAuthSuccess Get Auth Success No error When get auth success should not err▒~HGetAuthh
+                Success Get Auth Success No error When get auth success should not err▒~I</div>
+        </td>
+        <td colspan="6" align="center">
+
+            <button id='btn_pt2_1' type="button"  class="btn btn-success btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_1'>▒~@~Z▒~G</button>
+            <div id='div_pt2_1' class="collapse">
+                <pre>PASS</pre>
+            </div>
+        </td>
+    </tr>
+
+    <tr id="ft2_2" class="">
+        <td class="failCase">
+            <div class="testcase">GetAuthSuccess Get Auth Success Out is nil When get auth success out should equal nil▒~~
+                HGetAuthSuccess Get Auth Success Out is nil When get auth success out should equal nil▒~I</div>
+        </td>
+        <td colspan="6" align="center">
+            <!--▒~X认▒~T▒起▒~T~Y误信▒~A▒
+            <button id='btn_ft1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_2'>失败</button>
+            <div id='div_ft1_2' class="collapse">  -->
+
+            <!-- ▒~X认▒~U▒~@▒~T~Y误信▒~A▒ -->
+            <button id="btn_ft2_2" type="button" class="btn btn-warning btn-xs" data-toggle="collapse" data-target="#div_ft2_2">失败</button>
+            <div id="div_ft2_2" class="collapse in">
+                <pre>"Failure">C:/Users/Administrator/Desktop/items/test/ccpAPITest/testcase/test_P0/auth/GetAuthSuccess/getAuthSuccess_test.go:39&#xA;Expected&#xA;    &lt;*auth.UserAuthRespInner | 0xc0001b1b00&gt;: {&#xA;        AuthState: nil,&#xA;        KickoffText: nil,&#xA;        ConnectorId: nil,&#xA;        Version: nil,&#xA;        Collect: nil,&#xA;        TransferPolicy: nil,&#xA;        Pversion: nil,&#xA;        SoftVersion: nil,&#xA;        UpdateMode: nil,&#xA;        Historyver: nil,&#xA;        AuthToken: nil,&#xA;        IpSpeedTestPolicy: nil,&#xA;        LogUploadPolicy: nil,&#xA;        AppleDeviceToken: nil,&#xA;        ConfigParams: nil,&#xA;        UpdateDesc: nil,&#xA;        OfflineCall: nil,&#xA;        RedPacketToken: nil,&#xA;        Timestamp: nil,&#xA;        Mediadatapolicy: nil,&#xA;        XXX_NoUnkeyedLiteral: {},&#xA;        XXX_unrecognized: nil,&#xA;        XXX_sizecache: 0,&#xA;    }&#xA;to equal&#xA;    &lt;nil&gt;: nil&#xA;C:/Users/Administrator/Desktop/items/test/ccpAPITest/testcase/test_P0/auth/GetAuthSuccess/getAuthSuccess_test.go:40</pre>
+            </div>
+        </td>
+    </tr>
+
+    <tr class="failClass warning">
+        <td>GetAuthFail P1 Suite</td>
+        <td class="text-center">2</td>
+        <td class="text-center">0</td>
+        <td class="text-center">2</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center"><a href="javascript:showClassDetail('c3',2)" class="detail" id="c3">详▒~F</a></td>
+    </tr>
+
+    <tr id="ft3_1" class="">
+        <td class="failCase">
+            <div class="testcase">GetAuthFail P1 Get Auth Fail P1 error When get auth fail should be err▒~HGetAuthFail P11
+                Get Auth Fail P1 error When get auth fail should be err▒~I</div>
+        </td>
+        <td colspan="6" align="center">
+            <!--▒~X认▒~T▒起▒~T~Y误信▒~A▒
+            <button id='btn_ft1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_2'>失败</button>
+            <div id='div_ft1_2' class="collapse">  -->
+
+            <!-- ▒~X认▒~U▒~@▒~T~Y误信▒~A▒ -->
+            <button id="btn_ft3_1" type="button" class="btn btn-warning btn-xs" data-toggle="collapse" data-target="#div_ft3_1">失败</button>
+            <div id="div_ft3_1" class="collapse in">
+                <pre>"Failure">C:/Users/Administrator/Desktop/items/test/ccpAPITest/testcase/test_P1/auth/GetAuthFail/getAuthFailP1_test.go:24&#xA;Expected an error to have occurred.  Got:&#xA;    &lt;nil&gt;: nil&#xA;C:/Users/Administrator/Desktop/items/test/ccpAPITest/testcase/test_P1/auth/GetAuthFail/getAuthFailP1_test.go:25</pre>
+            </div>
+        </td>
+    </tr>
+    <tr id="ft3_2" class="">
+        <td class="failCase">
+            <div class="testcase">GetAuthFail P1 Get Auth P1 Fail Out is 0 When get auth fail out should equal 0▒~HGetAutt
+                hFail P1 Get Auth P1 Fail Out is 0 When get auth fail out should equal 0▒~I</div>
+        </td>
+        <td colspan="6" align="center">
+            <!--▒~X认▒~T▒起▒~T~Y误信▒~A▒
+            <button id='btn_ft1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_2'>失败</button>
+            <div id='div_ft1_2' class="collapse">  -->
+
+            <!-- ▒~X认▒~U▒~@▒~T~Y误信▒~A▒ -->
+            <button id="btn_ft3_2" type="button" class="btn btn-warning btn-xs" data-toggle="collapse" data-target="#div_ft3_2">失败</button>
+            <div id="div_ft3_2" class="collapse in">
+                <pre>"Failure">C:/Users/Administrator/Desktop/items/test/ccpAPITest/testcase/test_P1/auth/GetAuthFail/getAuthFailP1_test.go:39&#xA;Expected&#xA;    &lt;*auth.UserAuthRespInner | 0xc0001cf080&gt;: {&#xA;        AuthState: nil,&#xA;        KickoffText: nil,&#xA;        ConnectorId: nil,&#xA;        Version: nil,&#xA;        Collect: nil,&#xA;        TransferPolicy: nil,&#xA;        Pversion: nil,&#xA;        SoftVersion: nil,&#xA;        UpdateMode: nil,&#xA;        Historyver: nil,&#xA;        AuthToken: nil,&#xA;        IpSpeedTestPolicy: nil,&#xA;        LogUploadPolicy: nil,&#xA;        AppleDeviceToken: nil,&#xA;        ConfigParams: nil,&#xA;        UpdateDesc: nil,&#xA;        OfflineCall: nil,&#xA;        RedPacketToken: nil,&#xA;        Timestamp: nil,&#xA;        Mediadatapolicy: nil,&#xA;        XXX_NoUnkeyedLiteral: {},&#xA;        XXX_unrecognized: nil,&#xA;        XXX_sizecache: 0,&#xA;    }&#xA;to equal&#xA;    &lt;int&gt;: 0&#xA;C:/Users/Administrator/Desktop/items/test/ccpAPITest/testcase/test_P1/auth/GetAuthFail/getAuthFailP1_test.go:40</pre>
+            </div>
+        </td>
+    </tr>
+
+    <tr class="failClass warning">
+        <td>GetAuthSuccessP1 Suite</td>
+        <td class="text-center">2</td>
+        <td class="text-center">1</td>
+        <td class="text-center">1</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center"><a href="javascript:showClassDetail('c4',2)" class="detail" id="c4">详▒~F</a></td>
+    </tr>
+
+    <tr id="pt4_1" class="">
+        <td class="passCase">
+            <div class="testcase">GetAuthSuccessP1 Get Auth SuccessP1 No error When get auth success should not err▒~HGett
+                AuthSuccessP1 Get Auth SuccessP1 No error When get auth success should not err▒~I</div>
+        </td>
+        <td colspan="6" align="center">
+
+            <button id='btn_pt4_1' type="button"  class="btn btn-success btn-xs collapsed" data-toggle="collapse" data-target='#div_pt4_1'>▒~@~Z▒~G</button>
+            <div id='div_pt4_1' class="collapse">
+                <pre>PASS</pre>
+            </div>
+        </td>
+    </tr>
+
+    <tr id="ft4_2" class="">
+        <td class="failCase">
+            <div class="testcase">GetAuthSuccessP1 Get Auth SuccessP1 Out is nil When get auth success out should equal nil▒~HGetAuthSuccessP1 Get Auth SuccessP1 Out is nil When get auth success out should equal nil▒~I</div>
+        </td>
+        <td colspan="6" align="center">
+            <!--▒~X认▒~T▒起▒~T~Y误信▒~A▒
+            <button id='btn_ft1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_2'>失败</button>
+            <div id='div_ft1_2' class="collapse">  -->
+            <!-- ▒~X认▒~U▒~@▒~T~Y误信▒~A▒ -->
+            <button id="btn_ft4_2" type="button" class="btn btn-warning btn-xs" data-toggle="collapse" data-target="#div_ft4_2">失败</button>
+            <div id="div_ft4_2" class="collapse in">
+                <pre>"Failure">C:/Users/Administrator/Desktop/items/test/ccpAPITest/testcase/test_P1/auth/GetAuthSuccess/getAuthSuccessP1_test.go:39&#xA;Expected&#xA;    &lt;*auth.UserAuthRespInner | 0xc0001cf080&gt;: {&#xA;        AuthState: nil,&#xA;        KickoffText: nil,&#xA;        ConnectorId: nil,&#xA;        Version: nil,&#xA;        Collect: nil,&#xA;        TransferPolicy: nil,&#xA;        Pversion: nil,&#xA;        SoftVersion: nil,&#xA;        UpdateMode: nil,&#xA;        Historyver: nil,&#xA;        AuthToken: nil,&#xA;        IpSpeedTestPolicy: nil,&#xA;        LogUploadPolicy: nil,&#xA;        AppleDeviceToken: nil,&#xA;        ConfigParams: nil,&#xA;        UpdateDesc: nil,&#xA;        OfflineCall: nil,&#xA;        RedPacketToken: nil,&#xA;        Timestamp: nil,&#xA;        Mediadatapolicy: nil,&#xA;        XXX_NoUnkeyedLiteral: {},&#xA;        XXX_unrecognized: nil,&#xA;        XXX_sizecache: 0,&#xA;    }&#xA;to equal&#xA;    &lt;nil&gt;: nil&#xA;C:/Users/Administrator/Desktop/items/test/ccpAPITest/testcase/test_P1/auth/GetAuthSuccess/getAuthSuccessP1_test.go:40</pre>
+            </div>
+        </td>
+    </tr>
+
+
+    <tr id='total_row' class="text-center active">
+        <td>▒~@▒计</td>
+        <td>8</td>
+        <td>2</td>
+        <td>6</td>
+        <td>0</td>
+        <td>0</td>
+        <td>▒~@~Z▒~G▒~N~G▒~Z25.00%</td>
+    </tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+<div style=" position:fixed;right:50px; bottom:30px; width:20px; height:20px;cursor:pointer">
+    <a href="#"><span class="glyphicon glyphicon-eject" style="font-size:30px;" aria-hidden="true">
+    </span></a></div>
+
+
+</body>
+</html>
+                     
+

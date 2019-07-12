@@ -1,0 +1,16 @@
+syntax = "proto2";
+package testpb;
+
+//option optimize_for = LITE_RUNTIME;
+
+enum FOO
+{
+	X = 0;
+};
+
+message UserInfo {
+//	optional string deviceNo= 1;  // 用户设备号
+    optional string message = 1;
+	optional int32 length = 2;
+	optional int32 cnt = 3;
+}
